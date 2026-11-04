@@ -63,11 +63,11 @@ Dependências: `geopandas`, `shapely>=2.0`, `pyogrio`, `pandas`, `openpyxl`.
 
 ## Como citar
 
-Henderson, M. (2026). *Desmatamento na Amazônia Legal por município, estado e região (PRODES/INPE, acumulado até 2025)*. Versão 1.0. Zenodo, 2026. DOI: [10.5281/zenodo.23959180](https://doi.org/10.5281/zenodo.23959180).
+Costa, M. H. (2026). *Desmatamento na Amazônia Legal por município, estado e região (PRODES/INPE, acumulado até 2025)*. Versão 1.0. Zenodo, 2026. DOI: [10.5281/zenodo.23959180](https://doi.org/10.5281/zenodo.23959180).
 
 Em ABNT:
 
-> HENDERSON, Murilo. *Desmatamento na Amazônia Legal por município, estado e região (PRODES/INPE, acumulado até 2025)*. Versão 1.0. [S. l.]: Zenodo, 2026. DOI: 10.5281/zenodo.23959180.
+> COSTA, Murilo Henderson. *Desmatamento na Amazônia Legal por município, estado e região (PRODES/INPE, acumulado até 2025)*. Versão 1.0. [S. l.]: Zenodo, 2026. DOI: 10.5281/zenodo.23959180.
 
 O botão **Cite this repository**, na lateral do GitHub, gera a referência em outros formatos.
 
@@ -77,5 +77,5 @@ Código sob [licença MIT](LICENSE). Tabelas e mapas gerados sob [CC BY 4.0](htt
 
 ## Autor
 
-**Murilo Henderson** · Sistemas de Informação, UFRA
-[GitHub](https://github.com/murilohenderson) · [LinkedIn](https://linkedin.com/in/murilohenderson)
+**Murilo Henderson Costa** · Sistemas de Informação, UFRA
+[GitHub](https://github.com/murilohenderson) · [LinkedIn](https://linkedin.com/in/murilohenderson) · [Lattes](http://lattes.cnpq.br/8856926594323721)
