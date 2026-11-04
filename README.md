@@ -7,8 +7,6 @@ Cálculo da área desmatada (km² e % da área) em cada um dos 773 municípios d
 - **Histórico:** desmatamento acumulado até 2007, incluindo áreas desmatadas antes do início do monitoramento do PRODES (1988);
 - **Recente:** incremento anual de 2008 a 2025.
 
-![Mapa do Arco do Desmatamento](resultados/mapa_arco_desmatamento.png)
-
 ## Resultados
 
 Amazônia Legal: **1.116.143 km² desmatados (22,3% da área)**, sendo 17,9% até 2007 e 4,4% entre 2008 e 2025.
