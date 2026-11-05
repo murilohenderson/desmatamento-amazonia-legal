@@ -1,6 +1,6 @@
 # Desmatamento na Amazônia Legal por município, estado e região
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23959180.svg)](https://doi.org/10.5281/zenodo.23959180)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23959179.svg)](https://doi.org/10.5281/zenodo.23959179)
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/murilohenderson/desmatamento-amazonia-legal/blob/main/notebooks/desmatamento_areas.ipynb)
 
 Cálculo da área desmatada (km² e % da área) em cada um dos 773 municípios da Amazônia Legal, com agregação por estado e para a região como um todo, a partir dos dados do PRODES/INPE. O desmatamento é separado em dois períodos:
@@ -51,7 +51,7 @@ Na pasta [`resultados/`](resultados/), exceto o GeoPackage:
 | `municipios.csv` | Área e desmatamento (km² e %) dos 773 municípios |
 | `estados.csv` | Área e desmatamento (km² e %) por estado (porção na Amazônia Legal) |
 | `serie_anual_municipios.csv` | Desmatamento anual por município, 2008–2025, em formato longo (município × ano) |
-| `desmatamento_amazonia_legal.gpkg` | Disponível nos arquivos da [release](https://github.com/murilohenderson/desmatamento-amazonia-legal/releases/latest) e no Zenodo. Camadas `municipios` e `estados` com geometria (SIRGAS 2000) e todos os indicadores, incluindo a série anual (`a2008` a `a2025`) |
+| `desmatamento_amazonia_legal.gpkg` | Disponível nos arquivos da [release](https://github.com/murilohenderson/desmatamento-amazonia-legal/releases/latest) no GitHub. Camadas `municipios` e `estados` com geometria (SIRGAS 2000) e todos os indicadores, incluindo a série anual (`a2008` a `a2025`) |
 
 Nos CSV e no GeoPackage, as colunas seguem o padrão `historico_ate_2007_km2`, `recente_2008_2025_km2`, `total_km2` e os respectivos `_pct`.
 
@@ -109,11 +109,13 @@ Dependências: `geopandas`, `shapely>=2.0`, `pyogrio`, `pandas`, `openpyxl`.
 
 ## Como citar
 
-Costa, M. H. (2026). *Desmatamento na Amazônia Legal por município, estado e região (PRODES/INPE, acumulado até 2025)*. Versão 1.1. Zenodo, 2026. DOI: [10.5281/zenodo.23959180](https://doi.org/10.5281/zenodo.23959180).
+Costa, M. H. (2026). *Desmatamento na Amazônia Legal por município, estado e região (PRODES/INPE, acumulado até 2025)*. Versão 1.1. Zenodo, 2026. DOI: [10.5281/zenodo.23982011](https://doi.org/10.5281/zenodo.23982011).
 
 Em ABNT:
 
-> COSTA, Murilo Henderson. *Desmatamento na Amazônia Legal por município, estado e região (PRODES/INPE, acumulado até 2025)*. Versão 1.1. [S. l.]: Zenodo, 2026. DOI: 10.5281/zenodo.23959180.
+> COSTA, Murilo Henderson. *Desmatamento na Amazônia Legal por município, estado e região (PRODES/INPE, acumulado até 2025)*. Versão 1.1. [S. l.]: Zenodo, 2026. DOI: 10.5281/zenodo.23982011.
+
+Para citar sempre a versão mais recente, use o DOI de todas as versões: [10.5281/zenodo.23959179](https://doi.org/10.5281/zenodo.23959179). A versão 1.0 tem o DOI [10.5281/zenodo.23959180](https://doi.org/10.5281/zenodo.23959180).
 
 O botão **Cite this repository**, na lateral do GitHub, gera a referência em outros formatos.
 
