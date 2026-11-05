@@ -12,20 +12,34 @@ Cálculo da área desmatada (km² e % da área) em cada um dos 773 municípios d
 
 Amazônia Legal: **1.116.143 km² desmatados (22,3% da área)**, sendo 17,9% até 2007 e 4,4% entre 2008 e 2025.
 
-Municípios de estudo (Pará):
+Por estado (porção dentro da Amazônia Legal):
 
-| Município | Área (km²) | Até 2007 (%) | 2008–2025 (%) | Total (km²) | Total (%) |
+| UF | Área (km²) | Até 2007 (%) | 2008–2025 (%) | Total (km²) | Total (%) |
 |---|---:|---:|---:|---:|---:|
-| São Félix do Xingu | 84.191 | 18,4 | 7,3 | 21.641 | 25,7 |
-| Altamira | 159.482 | 3,7 | 4,2 | 12.555 | 7,9 |
-| Paragominas | 19.323 | 43,2 | 3,5 | 9.011 | 46,6 |
-| Marabá | 15.054 | 50,9 | 8,8 | 8.976 | 59,6 |
-| Itaituba | 62.051 | 7,1 | 4,5 | 7.165 | 11,6 |
-| Santarém | 18.013 | 16,3 | 2,2 | 3.323 | 18,5 |
-| Redenção | 3.824 | 74,1 | 5,6 | 3.049 | 79,7 |
-| Canaã dos Carajás | 3.147 | 54,8 | 1,0 | 1.755 | 55,8 |
-| Parauapebas | 6.957 | 18,2 | 1,4 | 1.363 | 19,6 |
-| Cachoeira do Arari | 3.036 | 2,8 | 0,1 | 88 | 2,9 |
+| MT | 903.062 | 35,1 | 5,1 | 363.572 | 40,3 |
+| PA | 1.244.912 | 19,1 | 4,7 | 297.204 | 23,9 |
+| MA | 260.510 | 46,0 | 11,0 | 148.363 | 57,0 |
+| TO | 277.190 | 27,4 | 13,3 | 112.680 | 40,6 |
+| RO | 237.383 | 34,9 | 7,2 | 99.822 | 42,0 |
+| AM | 1.558.265 | 2,1 | 1,2 | 51.188 | 3,3 |
+| AC | 163.908 | 11,8 | 4,6 | 26.911 | 16,4 |
+| RR | 223.001 | 3,8 | 2,1 | 13.168 | 5,9 |
+| AP | 141.387 | 1,9 | 0,4 | 3.235 | 2,3 |
+
+Os 10 municípios com maior área desmatada:
+
+| Município | UF | Área (km²) | Total (km²) | Total (%) |
+|---|---|---:|---:|---:|
+| São Félix do Xingu | PA | 84.191 | 21.641 | 25,7 |
+| Altamira | PA | 159.482 | 12.555 | 7,9 |
+| Porto Velho | RO | 34.069 | 12.553 | 36,9 |
+| Paranatinga | MT | 24.183 | 9.705 | 40,1 |
+| Paragominas | PA | 19.323 | 9.011 | 46,6 |
+| Marabá | PA | 15.054 | 8.976 | 59,6 |
+| Novo Repartimento | PA | 15.329 | 8.926 | 58,2 |
+| Juara | MT | 22.751 | 8.596 | 37,8 |
+| Novo Progresso | PA | 38.179 | 7.775 | 20,4 |
+| Santana do Araguaia | PA | 11.601 | 7.668 | 66,1 |
 
 As tabelas completas (municípios, estados e Amazônia Legal) estão em [`resultados/desmatamento_areas.xlsx`](resultados/desmatamento_areas.xlsx).
 
@@ -52,22 +66,38 @@ As camadas do PRODES não se sobrepõem por construção (separação por bioma 
 
 **Observação:** os valores estaduais referem-se apenas à porção de cada estado dentro da Amazônia Legal; no caso do Maranhão, a parte fora da Amazônia Legal não entra no cálculo.
 
+## Validação
+
+Os resultados foram comparados com valores oficiais publicados:
+
+| Recorte | Fonte oficial | Oficial | Este trabalho | Diferença |
+|---|---|---:|---:|---:|
+| Acre, desmatamento acumulado até 2025 | [SEMA-AC / PRODES](https://sema.ac.gov.br/wp-content/uploads/2026/04/Relatorio-Desmatamento-PRODES-2024_2025-1.pdf) | 26.918,8 km² (16,4%) | 26.911,0 km² (16,4%) | −0,03% |
+| Acre, 2008–2025 (soma das taxas anuais) | SEMA-AC / PRODES | 7.623 km² | 7.505 km² | −1,5% |
+
+O Acre está inteiramente no bioma Amazônia, o que permite testar as camadas do PRODES Amazônia e o recorte municipal sem interferência do Cerrado. A diferença no período 2008–2025 é esperada: as taxas oficiais incluem uma correção estatística para áreas sob nuvem, enquanto este trabalho soma os polígonos efetivamente mapeados.
+
+**Limitações:**
+
+- Nos estados com grande porção de Cerrado (MT, TO e MA), os valores dependem principalmente das camadas do PRODES Cerrado e não foram comparados com totais oficiais.
+- Os valores por município podem ser conferidos no [painel do PRODES no TerraBrasilis](https://terrabrasilis.dpi.inpe.br/app/dashboard/deforestation/biomes/legal_amazon/rates).
+
 ## Como rodar
 
 1. Baixe as camadas listadas em **Dados** e envie para o seu Google Drive.
 2. Abra o notebook no Colab pelo botão acima.
-3. Ajuste os nomes dos arquivos e a lista de municípios de estudo na célula de configuração.
+3. Ajuste os nomes dos arquivos na célula de configuração, se necessário.
 4. Execute todas as células. O processamento leva de 5 a 20 minutos no Colab gratuito.
 
 Dependências: `geopandas`, `shapely>=2.0`, `pyogrio`, `pandas`, `openpyxl`.
 
 ## Como citar
 
-Costa, M. H. (2026). *Desmatamento na Amazônia Legal por município, estado e região (PRODES/INPE, acumulado até 2025)*. Versão 1.0. Zenodo, 2026. DOI: [10.5281/zenodo.23959180](https://doi.org/10.5281/zenodo.23959180).
+Costa, M. H. (2026). *Desmatamento na Amazônia Legal por município, estado e região (PRODES/INPE, acumulado até 2025)*. Versão 1.1. Zenodo, 2026. DOI: [10.5281/zenodo.23959180](https://doi.org/10.5281/zenodo.23959180).
 
 Em ABNT:
 
-> COSTA, Murilo Henderson. *Desmatamento na Amazônia Legal por município, estado e região (PRODES/INPE, acumulado até 2025)*. Versão 1.0. [S. l.]: Zenodo, 2026. DOI: 10.5281/zenodo.23959180.
+> COSTA, Murilo Henderson. *Desmatamento na Amazônia Legal por município, estado e região (PRODES/INPE, acumulado até 2025)*. Versão 1.1. [S. l.]: Zenodo, 2026. DOI: 10.5281/zenodo.23959180.
 
 O botão **Cite this repository**, na lateral do GitHub, gera a referência em outros formatos.
 
