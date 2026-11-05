@@ -3,7 +3,7 @@ message: "Se usar este código ou os resultados, cite conforme abaixo."
 title: "Desmatamento na Amazônia Legal por município, estado e região (PRODES/INPE, acumulado até 2025)"
 version: "1.1"
 date-released: 2026-11-05
-doi: "10.5281/zenodo.23959180"
+doi: "10.5281/zenodo.23982011"
 authors:
   - family-names: Costa
     given-names: Murilo Henderson
