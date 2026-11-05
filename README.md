@@ -41,7 +41,19 @@ Os 10 municípios com maior área desmatada:
 | Novo Progresso | PA | 38.179 | 7.775 | 20,4 |
 | Santana do Araguaia | PA | 11.601 | 7.668 | 66,1 |
 
-As tabelas completas (municípios, estados e Amazônia Legal) estão em [`resultados/desmatamento_areas.xlsx`](resultados/desmatamento_areas.xlsx).
+## Arquivos gerados
+
+Todos na pasta [`resultados/`](resultados/):
+
+| Arquivo | Conteúdo |
+|---|---|
+| `desmatamento_areas.xlsx` | Tabelas por município, estado e Amazônia Legal, e série anual 2008–2025 nos três níveis |
+| `municipios.csv` | Área e desmatamento (km² e %) dos 773 municípios |
+| `estados.csv` | Área e desmatamento (km² e %) por estado (porção na Amazônia Legal) |
+| `serie_anual_municipios.csv` | Desmatamento anual por município, 2008–2025, em formato longo (município × ano) |
+| `desmatamento_amazonia_legal.gpkg` | Camadas `municipios` e `estados` com geometria (SIRGAS 2000) e todos os indicadores, incluindo a série anual (`a2008` a `a2025`) |
+
+Nos CSV e no GeoPackage, as colunas seguem o padrão `historico_ate_2007_km2`, `recente_2008_2025_km2`, `total_km2` e os respectivos `_pct`.
 
 ## Dados
 
@@ -60,7 +72,8 @@ Os dados brutos não estão no repositório por causa do tamanho. Todos são pú
 1. Todas as camadas são reprojetadas para **South America Albers Equal Area (ESRI:102033)**, uma projeção de área igual, para que as áreas sejam calculadas em m² e não em graus.
 2. Os municípios são recortados pelo limite da Amazônia Legal.
 3. Para cada polígono de desmatamento, um índice espacial (STRtree) identifica os municípios que ele intersecta. Polígonos inteiramente contidos em um município entram com a área total; apenas os que cruzam divisas passam por interseção geométrica.
-4. As áreas são somadas por município e, a partir dos municípios, por estado e para a Amazônia Legal, de forma que os três níveis sejam consistentes entre si.
+4. No período 2008–2025, as áreas são somadas também por ano, a partir do campo de ano das camadas do PRODES, o que gera a série anual por município.
+5. As áreas são somadas por município e, a partir dos municípios, por estado e para a Amazônia Legal, de forma que os três níveis sejam consistentes entre si.
 
 As camadas do PRODES não se sobrepõem por construção (separação por bioma e por período), por isso não há dissolve entre elas.
 
@@ -77,7 +90,11 @@ Os resultados foram comparados com valores oficiais publicados:
 
 O Acre está inteiramente no bioma Amazônia, o que permite testar as camadas do PRODES Amazônia e o recorte municipal sem interferência do Cerrado. A diferença no período 2008–2025 é esperada: as taxas oficiais incluem uma correção estatística para áreas sob nuvem, enquanto este trabalho soma os polígonos efetivamente mapeados.
 
+A série anual do Acre também confere com os incrementos mapeados citados no mesmo relatório: 1.006 km² em 2022 e 275 km² em 2025.
+
 **Limitações:**
+
+- **Série anual no Cerrado:** até 2012, o PRODES Cerrado é bienal. Por isso, na porção de Cerrado (sobretudo MT, TO e MA), os valores de 2008, 2010 e 2012 acumulam dois anos, e os de 2009 e 2011 ficam próximos de zero. Para análises anuais nesses estados, use a série a partir de 2013 ou agrupe 2008–2012 em biênios.
 
 - Nos estados com grande porção de Cerrado (MT, TO e MA), os valores dependem principalmente das camadas do PRODES Cerrado e não foram comparados com totais oficiais.
 - Os valores por município podem ser conferidos no [painel do PRODES no TerraBrasilis](https://terrabrasilis.dpi.inpe.br/app/dashboard/deforestation/biomes/legal_amazon/rates).
@@ -87,7 +104,7 @@ O Acre está inteiramente no bioma Amazônia, o que permite testar as camadas do
 1. Baixe as camadas listadas em **Dados** e envie para o seu Google Drive.
 2. Abra o notebook no Colab pelo botão acima.
 3. Ajuste os nomes dos arquivos na célula de configuração, se necessário.
-4. Execute todas as células. O processamento leva de 5 a 20 minutos no Colab gratuito.
+4. Execute todas as células. O processamento leva de 10 a 20 minutos no Colab gratuito. Os resultados são salvos em um `.zip` no Drive.
 
 Dependências: `geopandas`, `shapely>=2.0`, `pyogrio`, `pandas`, `openpyxl`.
 
