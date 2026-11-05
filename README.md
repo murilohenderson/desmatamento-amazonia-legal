@@ -43,7 +43,7 @@ Os 10 municípios com maior área desmatada:
 
 ## Arquivos gerados
 
-Todos na pasta [`resultados/`](resultados/):
+Na pasta [`resultados/`](resultados/), exceto o GeoPackage:
 
 | Arquivo | Conteúdo |
 |---|---|
@@ -51,7 +51,7 @@ Todos na pasta [`resultados/`](resultados/):
 | `municipios.csv` | Área e desmatamento (km² e %) dos 773 municípios |
 | `estados.csv` | Área e desmatamento (km² e %) por estado (porção na Amazônia Legal) |
 | `serie_anual_municipios.csv` | Desmatamento anual por município, 2008–2025, em formato longo (município × ano) |
-| `desmatamento_amazonia_legal.gpkg` | Camadas `municipios` e `estados` com geometria (SIRGAS 2000) e todos os indicadores, incluindo a série anual (`a2008` a `a2025`) |
+| `desmatamento_amazonia_legal.gpkg` | Disponível nos arquivos da [release](https://github.com/murilohenderson/desmatamento-amazonia-legal/releases/latest) e no Zenodo. Camadas `municipios` e `estados` com geometria (SIRGAS 2000) e todos os indicadores, incluindo a série anual (`a2008` a `a2025`) |
 
 Nos CSV e no GeoPackage, as colunas seguem o padrão `historico_ate_2007_km2`, `recente_2008_2025_km2`, `total_km2` e os respectivos `_pct`.
 
@@ -95,7 +95,6 @@ A série anual do Acre também confere com os incrementos mapeados citados no me
 **Limitações:**
 
 - **Série anual no Cerrado:** até 2012, o PRODES Cerrado é bienal. Por isso, na porção de Cerrado (sobretudo MT, TO e MA), os valores de 2008, 2010 e 2012 acumulam dois anos, e os de 2009 e 2011 ficam próximos de zero. Para análises anuais nesses estados, use a série a partir de 2013 ou agrupe 2008–2012 em biênios.
-
 - Nos estados com grande porção de Cerrado (MT, TO e MA), os valores dependem principalmente das camadas do PRODES Cerrado e não foram comparados com totais oficiais.
 - Os valores por município podem ser conferidos no [painel do PRODES no TerraBrasilis](https://terrabrasilis.dpi.inpe.br/app/dashboard/deforestation/biomes/legal_amazon/rates).
 
